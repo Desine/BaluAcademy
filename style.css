@@ -25,7 +25,7 @@ h1{
     font-size: clamp(25px, 5vw, 60px);
 }
 h2{
-    font-size: clamp(30px, 3vw, 50px);
+    font-size: clamp(30px, 4vw, 50px);
 }
 h3{
     font-size: clamp(25px, 3vw, 25px);
@@ -55,11 +55,11 @@ body {
 }
 
 .section-inner{
-    padding: 30px 10%;
+    padding: 80px 10% 40px 10%;
 
     h2{
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 }
 
@@ -67,10 +67,6 @@ body {
 
 
 .section-outer:nth-of-type(5){
-    background-image: url('img/background_footer.png');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;   
 }
 .section-outer:last-of-type{
     background: #FFD201;
@@ -125,7 +121,7 @@ header{
     box-shadow: 0px 0px 30px 0px var(--shadow);
 
     h1{
-        font-size: 15px;
+        font-size: 20px;
     }
 
     ul{
@@ -175,6 +171,8 @@ header{
 
 /* Hero */
 #hero{
+    padding-bottom: 60px;
+
     div{
         max-width: max(20vw, 600px);
 
@@ -213,7 +211,7 @@ header{
     }
 
     img{
-        height: 50px;
+        height: 60px;
         object-fit: contain;
     }
     h3{
@@ -221,6 +219,7 @@ header{
     }
     p{
         margin-top: 20px;
+        max-width: 200px;
     }
 
     div:nth-child(1){
@@ -245,6 +244,7 @@ header{
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
     }
     
@@ -258,26 +258,39 @@ header{
 
 /* Double */
 #double{
+    --displace-img: -16vw;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: clamp(10px, 8vw, 100px);
+    margin-bottom: var(--displace-img);
 
-    div {
-        padding: 30px;
-    }
+
+    background-repeat: no-repeat;
+    background-image: 
+        url('img/ellipse_purple_left.png'), 
+        url('img/ellipse_purple_right.png');
+    background-position: 
+        bottom calc(20px - var(--displace-img)) left -400px, 
+        top -300px right -150px;
+    background-size: 
+        clamp(700px, 80%, 1200px), 
+        clamp(700px, 50%, 1200px);
+
+
     
     p{
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
-    div:nth-child(2){
-        grid-column: 1 /2;
-        grid-row: 2/3;
+    div:nth-child(1), div:nth-child(3){
+        padding: 0 50px;
     }
-    
+    div:nth-child(3){
+        order: 4;
+    }
     div:nth-child(4){
-        grid-column: 2/3;
-        grid-row: 1/2;
+        transform: translateY(var(--displace-img));
     }
     
     img{
@@ -293,13 +306,21 @@ header{
     @media (max-width: 900px){
         grid-template-columns: 1fr;
         
-        div:nth-child(2){
-            grid-column: unset;
-            grid-row: unset;
+        background-position: 
+            bottom left -400px, 
+            top -300px left 50px;
+        
+        margin-bottom: 0;
+            
+        h3, p{
+            text-align: center;
+        }
+        
+        div:nth-child(3){
+            order: 0;
         }
         div:nth-child(4){
-            grid-column: unset;
-            grid-row: unset;
+            transform: translateY(0);
         }        
     }
 }
@@ -308,11 +329,21 @@ header{
 
 /* about */
 #about{
+    background-repeat: no-repeat;
+    background-image: 
+        url('img/ellipse_yellow.png'), 
+        url('img/circle_yellow.png');
+    background-size: 
+        min(600px, 45%), 
+        25%;
+    background-position: 
+        top 50px left min(50%, 70px), 
+        top right 100px;
+
     #about-grid{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-
+        gap: 30px;
 
         div{
             display: flex;
@@ -321,7 +352,7 @@ header{
 
             background-color: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 30px;
 
             box-shadow: 0px 0px 20px 0px var(--shadow);
 
@@ -330,7 +361,6 @@ header{
             :not(:first-child){
                 margin-top: 30px;
             }
-
             
             button{
                 height: 47px;
@@ -344,6 +374,30 @@ header{
         }
     }
 
+
+    @media (max-width: 800px) {        
+        background-size: max(500px, 45%), max(300px, 60%);
+        background-position: top 50px left min(50%, 70px), top 70% right;
+        
+        /* #about-grid{
+            grid-template-columns: repeat(4, 1fr);
+        }
+        #about-grid > *{
+            grid-column: span 2;
+        }
+        #about-grid > :nth-child(3){
+            grid-column: 2 / 4;
+        } */
+    }
+
+    /* @media (max-width: 600px) {
+        #about-grid {
+            grid-template-columns: 1fr;
+        }
+        #about-grid > :nth-child(n){
+            grid-column: span 1;
+        }
+    } */
 }
 /* / about */
 
@@ -351,6 +405,22 @@ header{
 
 /* Video */
 #video{
+    
+    background-image: 
+        url('img/circle_yellow_bright.png'), 
+        url('img/circle_yellow.png'), 
+        url('img/background_footer.png');
+    background-size: 
+        max(200px, 15%), 
+        max(200px, 15%), 
+        100% 100%;
+    background-position: 
+        top 25% right, 
+        bottom 10% right 15%, 
+        bottom -1px center;
+    background-repeat: no-repeat;
+
+
     p{
         margin: 0 auto;
         text-align: center;
@@ -358,12 +428,29 @@ header{
     }
 
     iframe{
-        width: 100%;
+        display: block;
+        width: 80%;
         aspect-ratio: 16/9;
-        margin-top: 40px;
+        margin: 40px auto 0 auto;
         border-radius: 2vw;
      
         box-shadow: 0px 0px 20px 0px var(--shadow);
+    }    
+
+    @media (max-width: 600px) {
+        background-size: 
+            max(200px, 15%), 
+            max(150px, 15%), 
+            600px 100%;
+        background-position: 
+            top 15% right -20%, 
+            bottom 10% right 5%, 
+            bottom -1px center;
+
+
+        iframe{
+            width: 100%;
+        }
     }
 }
 /* / Video */
@@ -371,9 +458,13 @@ header{
 
 /* Footer */
 footer{
+    padding: 10px max(10vw, 100px);
 
-    padding: 20px;
 
+    @media (max-width: 600px) {   
+        .contacts{
+            justify-content: center;
+        }
+    }
 }
-
 /* / Footer */
