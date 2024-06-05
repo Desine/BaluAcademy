@@ -21,8 +21,12 @@
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p{   
+    font-family: Century Gothic;
+}
+
 h1{
-    font-size: clamp(25px, 5vw, 60px);
+    font-size: clamp(25px, 6vw, 60px);
 }
 h2{
     font-size: clamp(30px, 4vw, 50px);
@@ -34,20 +38,17 @@ h4{
     font-size: clamp(40px, 3vw, 55px);
 }
 p{
-    font-size: clamp(15px, 2vw, 20px);
+    font-size: clamp(15px, 2vw, 17px);
 }
-
 a{
     text-decoration: none;
     color: black;
 }
-
 ul{
     list-style: none;
 }
-
-body {
-
+button{
+    font-family: Century Gothic;
 }
 
 .section-outer{
@@ -112,6 +113,8 @@ body {
 /* Header */
 header{
     position: sticky;
+    top: 0;
+    z-index: 100;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 10px max(10vw, 100px);
@@ -130,6 +133,8 @@ header{
     
     .navigation{
         justify-content: space-evenly;
+        font-family: Century Gothic;
+        text-transform: uppercase;
     }
     
     .contacts{
@@ -154,7 +159,6 @@ header{
         grid-template-columns: 1fr;
 
         .navigation {
-            order: 1;
             grid-column: 1;
         }
 
@@ -171,14 +175,12 @@ header{
 
 /* Hero */
 #hero{
-    padding-bottom: 60px;
+    padding-top: clamp(50px, 10vw, 150px);
+    padding-bottom: 200px;
 
     div{
-        max-width: max(20vw, 600px);
-
-
         p{
-            max-width: 90%;
+            max-width: 500px;
             margin-top: 30px;
         }
     }
@@ -196,6 +198,11 @@ header{
 
         box-shadow: 0px 5px 5px 0px var(--shadow);
     }
+
+    @media (max-width: 600px) {
+        padding-top: 50px;
+        padding-bottom: 200px;
+    }    
 }
 /* / Hero */
 
@@ -215,11 +222,13 @@ header{
         object-fit: contain;
     }
     h3{
-        margin-top: 20px;
+        margin-top: 30px;
+        color: white;
     }
     p{
-        margin-top: 20px;
+        margin-top: 30px;
         max-width: 200px;
+        color: white;
     }
 
     div:nth-child(1){
@@ -262,6 +271,7 @@ header{
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: min-content;
     gap: clamp(10px, 8vw, 100px);
     margin-bottom: var(--displace-img);
 
@@ -284,7 +294,7 @@ header{
     }
 
     div:nth-child(1), div:nth-child(3){
-        padding: 0 50px;
+        padding: 0 40px;
     }
     div:nth-child(3){
         order: 4;
@@ -315,9 +325,11 @@ header{
         h3, p{
             text-align: center;
         }
-        
+        div:nth-child(n){
+            padding: 0;
+        }
         div:nth-child(3){
-            order: 0;
+            order: unset;
         }
         div:nth-child(4){
             transform: translateY(0);
@@ -358,6 +370,12 @@ header{
 
             text-align: center;
 
+            h4{
+                font-weight: 100;
+                color: #FFCD01;
+                text-transform: uppercase;
+            }
+
             :not(:first-child){
                 margin-top: 30px;
             }
@@ -368,7 +386,7 @@ header{
                 margin-top: 30px;
                 border-radius: 15px;
                 border-color: transparent;
-                background: #FFD001;
+                background: #FFCD01;
                 font-size: 20px;
             }
         }
@@ -460,10 +478,14 @@ header{
 footer{
     padding: 10px max(10vw, 100px);
 
+    .phone{
+        color: white;
+        border-color: white;
+    }
 
     @media (max-width: 600px) {   
         .contacts{
-            justify-content: center;
+            justify-content: center;       
         }
     }
 }

@@ -13,10 +13,10 @@ function isDesktop() {
 /* Contacts */
 const phone_numbers = [
     '', // 0
-    '+797785036397', // 1
-    '897222203639', // 2
-    '556634894', // 2
-    '29800028', // 2
+    '+11111111111', // 1
+    '-22222222222', // 2
+    '+33333333333', // 2
+    '-44444444444', // 2
 ]
 
 document.querySelectorAll('.phone').forEach(phone => {
