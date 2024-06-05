@@ -9,6 +9,10 @@
     --shadow: rgba(0, 0, 0, 0.3);
 
     --section-inner-width: min(90vw, 1300px);
+
+    --margin-small: 10px;
+    --margin-medium: 30px;
+    --margin-big: 50px;
 }
 
 
@@ -64,7 +68,6 @@ button{
 
     h2{
         text-align: center;
-        margin-bottom: 50px;
     }
 }
 
@@ -189,14 +192,14 @@ button{
     div{
         p{
             max-width: 500px;
-            margin-top: 30px;
+            margin-top: var(--margin-medium);
         }
     }
 
     button{
         height: 47px;
+        margin-top: var(--margin-medium);
         padding: 0 40px;
-        margin-top: 30px;
         border-radius: 100vw;
         border-color: transparent;
         background: #BD9EFF;
@@ -210,6 +213,13 @@ button{
     @media (max-width: 600px) {
         padding-top: 50px;
         padding-bottom: 200px;
+
+        div{
+            p{
+                max-width: 500px;
+                margin-top: var(--margin-small);
+            }
+        }
     }    
 }
 /* / Hero */
@@ -220,24 +230,24 @@ button{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
+    color: white;
 
     div {
         padding: 50px 30px;
+
+        :not(:first-child){
+            margin-top: var(--margin-medium);
+        }
+        
+        img{
+            height: 60px;
+            object-fit: contain;
+        }
+        p{
+            max-width: 200px;
+        }
     }
 
-    img{
-        height: 60px;
-        object-fit: contain;
-    }
-    h3{
-        margin-top: 30px;
-        color: white;
-    }
-    p{
-        margin-top: 30px;
-        max-width: 200px;
-        color: white;
-    }
 
     div:nth-child(1){
         background: #FFB717;
@@ -262,6 +272,11 @@ button{
             flex-direction: column;
             align-items: center;
             text-align: center;
+
+         
+            :not(:first-child){
+                margin-top: var(--margin-small);
+            }
         }
     }
     
@@ -300,7 +315,7 @@ button{
         
                 
         p{
-            margin-top: 30px;
+            margin-top: var(--margin-medium);
         }
         
         div:nth-child(1), div:nth-child(3){
@@ -364,9 +379,12 @@ button{
         top right 100px;
 
     #about-grid{
+        margin-top: var(--margin-big);
+
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 30px;
+
 
         div{
             display: flex;
@@ -388,7 +406,7 @@ button{
             }
 
             :not(:first-child){
-                margin-top: 30px;
+                margin-top: var(--margin-medium);
             }
             
             button{
@@ -408,6 +426,15 @@ button{
         background-size: max(500px, 45%), max(300px, 60%);
         background-position: top 50px left min(50%, 70px), top 70% right;
         
+        #about-grid{
+            margin-top: var(--margin-medium);
+
+            div :not(:first-child){
+                margin-top: var(--margin-small);
+            }
+        } 
+
+
         /* #about-grid{
             grid-template-columns: repeat(4, 1fr);
         }
@@ -456,14 +483,19 @@ button{
     }
 
     iframe{
+        margin: 0 auto;
         display: block;
-        width: 80%;
+        width: 100%;
         aspect-ratio: 16/9;
-        margin: 40px auto 0 auto;
         border-radius: 2vw;
      
         box-shadow: 0px 0px 20px 0px var(--shadow);
     }    
+    
+    :not(:first-child){
+        margin-top: var(--margin-big);
+    }
+
 
     @media (max-width: 600px) {
         background-size: 
@@ -474,10 +506,10 @@ button{
             top 15% right -20%, 
             bottom 10% right 5%, 
             bottom -1px center;
-
-
-        iframe{
-            width: 100%;
+        
+            
+        :not(:first-child){
+            margin-top: var(--margin-medium);
         }
     }
 }
