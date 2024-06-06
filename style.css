@@ -86,10 +86,17 @@ button{
 
 /* Contacts */
 .contacts{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
 
     img{
+        height: -webkit-clamp(0px, 10vw, 30px);
         height: clamp(0px, 10vw, 30px);
     }
 
@@ -99,18 +106,25 @@ button{
 }
 
 .phone{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     padding: 2px 7px;
     border: 2px solid black;
     border-radius: 100vw;
+    font-size: -webkit-clamp(0px, 6vw, 20px);
     font-size: clamp(0px, 6vw, 20px);
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
 
     img{
         height: 100%;
         object-fit: contain;
         margin-right: 10px;
-
+        height: -webkit-clamp(0px, 8vw, 22px);
         height: clamp(0px, 8vw, 22px);
     }
 }
