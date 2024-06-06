@@ -365,7 +365,7 @@ button{
 /* / Double */
 
 
-/* Основные стили */
+/* about */
 #about{
     background-repeat: no-repeat;
     background-image: 
@@ -421,22 +421,8 @@ button{
         }
     }
 
-    /* Альтернативные стили для браузеров без поддержки */
-    @supports not (background-size: min(1px, 1%)) {
-        background-size: 600px 45%, 25%;
-        background-position: top 50px left 70px, top right 100px;
 
-        #about-grid{
-            margin-top: 30px;
-
-            div {
-                margin-top: 20px;
-            }
-        }
-    }
-
-    /* Альтернативные стили для браузеров с шириной меньше 800px */
-    @media (max-width: 800px) {
+    @media (max-width: 800px) {        
         background-size: max(500px, 45%), max(300px, 60%);
         background-position: top 50px left min(50%, 70px), top 70% right;
         
@@ -446,9 +432,30 @@ button{
             div :not(:first-child){
                 margin-top: var(--margin-small);
             }
+        } 
+
+
+        /* #about-grid{
+            grid-template-columns: repeat(4, 1fr);
         }
+        #about-grid > *{
+            grid-column: span 2;
+        }
+        #about-grid > :nth-child(3){
+            grid-column: 2 / 4;
+        } */
     }
+
+    /* @media (max-width: 600px) {
+        #about-grid {
+            grid-template-columns: 1fr;
+        }
+        #about-grid > :nth-child(n){
+            grid-column: span 1;
+        }
+    } */
 }
+/* / about */
 
 
 
