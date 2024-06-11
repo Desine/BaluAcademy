@@ -49,9 +49,14 @@ p{
 a{
     text-decoration: none;
     color: black;
+    -webkit-user-drag: none;
 }
 ul{
     list-style: none;
+}
+img{
+    user-select: none;
+    -webkit-user-drag: none;
 }
 button{
     font-family: Century Gothic;
@@ -88,13 +93,10 @@ button{
 .contacts{
     display: flex;
     align-items: center;
+    gap: 5px;
 
     img{
         height: clamp(0px, 10vw, 30px);
-    }
-
-    :not(:first-child){
-        margin-left: 5px;
     }
 }
 
@@ -144,6 +146,7 @@ button{
             display: flex;
         }        
         .navigation{
+            font-size: 20px;
             justify-content: space-evenly;
             font-family: Century Gothic;
             text-transform: uppercase;
@@ -178,10 +181,6 @@ button{
         }
     }
 }
-
-.navigation{
-    font-size: 20px;
-}
 /* / Header */
 
 /* Hero */
@@ -208,6 +207,12 @@ button{
         font-weight: bold;
 
         box-shadow: 0px 5px 5px 0px var(--shadow);
+        transition-duration: .1s;
+
+        &:hover{
+            box-shadow: 0px 0 10px 0px var(--shadow);
+            transition-duration: .1s;
+        }
     }
 
     @media (max-width: 600px) {
@@ -239,9 +244,8 @@ button{
             margin-top: var(--margin-medium);
         }
         
-        img{
+        svg{
             height: 60px;
-            object-fit: contain;
         }
         p{
             max-width: 200px;
@@ -390,6 +394,7 @@ button{
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: var(--margin-medium);
 
             background-color: white;
             border-radius: 20px;
@@ -405,8 +410,8 @@ button{
                 text-transform: uppercase;
             }
 
-            :not(:first-child){
-                margin-top: var(--margin-medium);
+            svg{
+                height: 100px;
             }
             
             button{
@@ -417,43 +422,39 @@ button{
                 border-color: transparent;
                 background: #FFCD01;
                 font-size: 20px;
+
+                transition-duration: .1s;
+
+                &:hover{
+                    box-shadow: inset 0 0 5px var(--shadow);
+                    
+                    transition-duration: .1s;
+                }
             }
         }
     }
 
 
-    @media (max-width: 800px) {        
+    @media (max-width: 550px) {        
         background-size: max(500px, 45%), max(300px, 60%);
         background-position: top 50px left min(50%, 70px), top 70% right;
         
+        
         #about-grid{
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
             margin-top: var(--margin-medium);
 
-            div :not(:first-child){
-                margin-top: var(--margin-small);
+            div{
+                gap: var(--margin-small);
+
+                
+                button{
+                    padding: 0 20px;
+                }
             }
         } 
-
-
-        /* #about-grid{
-            grid-template-columns: repeat(4, 1fr);
-        }
-        #about-grid > *{
-            grid-column: span 2;
-        }
-        #about-grid > :nth-child(3){
-            grid-column: 2 / 4;
-        } */
     }
-
-    /* @media (max-width: 600px) {
-        #about-grid {
-            grid-template-columns: 1fr;
-        }
-        #about-grid > :nth-child(n){
-            grid-column: span 1;
-        }
-    } */
 }
 /* / about */
 
@@ -462,16 +463,19 @@ button{
 /* Video */
 #video{
     background-image: 
-        url('img/circle_yellow_bright.png'), 
-        url('img/circle_yellow.png'), 
+        url('img/ring_couple_yellow.svg'),
+        url('img/circle_yellow_bright.svg'),
+        url('img/ring_yellow_dim.svg'), 
         url('img/background_footer.png');
     background-size: 
+        max(700px, 15%), 
         max(200px, 15%), 
         max(200px, 15%), 
         100% 100%;
     background-position: 
+        top 25% left -50px, 
         top 25% right, 
-        bottom 10% right 15%, 
+        bottom 10% right 10%, 
         bottom -1px center;
     background-repeat: no-repeat;
 
@@ -499,11 +503,13 @@ button{
 
     @media (max-width: 600px) {
         background-size: 
-            max(200px, 15%), 
+            max(500px, 15%), 
+            0, 
             max(150px, 15%), 
             600px 100%;
         background-position: 
-            top 15% right -20%, 
+            top 15% left -100px,
+            top 15% right -20%,
             bottom 10% right 5%, 
             bottom -1px center;
         
